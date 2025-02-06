@@ -22,7 +22,7 @@ def simple_work_calc(n, a, b):
 	if n == 1:
 		return 1
 	else:
-		return a * simple_work_calc(n // b, a, b) + n
+		return a * simple_work_calc(n / b, a, b) + n
 
 
 def work_calc(n, a, b, f):
@@ -39,7 +39,7 @@ def work_calc(n, a, b, f):
 	"""
 	if n <= 1:
 		return 1
-	return a * work_calc(n//b, a, b, f) + f(n)
+	return a * work_calc(n / b, a, b, f) + f(n)
 
 
 def span_calc(n, a, b, f):
