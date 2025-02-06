@@ -37,8 +37,9 @@ def work_calc(n, a, b, f):
 
 	Returns: the value of W(n).
 	"""
-	# TODO
-	pass
+	if n <= 1:
+		return 1
+	return a * work_calc(n//b, a, b, f) + f(n)
 
 
 def span_calc(n, a, b, f):

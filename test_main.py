@@ -11,10 +11,13 @@ def test_simple_work():
 	assert simple_work_calc(24, 3, 2) == 276  # additional test case
 
 
-# def test_work():
-# 	assert work_calc(10, 2, 2,lambda n: 1) == #TODO
-# 	assert work_calc(20, 1, 2, lambda n: n*n) == #TODO
-# 	assert work_calc(30, 3, 2, lambda n: n) == #TODO
+def test_work():
+	assert work_calc(10, 2, 2, lambda n: 1) == 15
+	assert work_calc(20, 1, 2, lambda n: n*n) == 524
+	assert work_calc(30, 3, 2, lambda n: n) == 650
+	assert work_calc(8, 2, 2, lambda n: n//2) == 24
+	assert work_calc(16, 2, 2, lambda n: n+1) == 85
+	assert work_calc(24, 1, 3, lambda n: n) == 48
 
 
 def test_compare_work():
