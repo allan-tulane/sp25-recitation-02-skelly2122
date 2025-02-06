@@ -9,7 +9,7 @@ import time
 
 def simple_work_calc(n, a, b):
 	"""Compute the value of the recurrence $W(n) = aW(n/b) + n
-
+	
 	Params:
 	n......input integer
 	a......branching factor of recursion tree
@@ -18,8 +18,11 @@ def simple_work_calc(n, a, b):
 	Returns: the value of W(n).
 	"""
 	# TODO
-	pass
-
+	if n==1:
+		return 1
+	else:
+		return a*simple_work_calc(n//b,a,b)+n
+		
 def work_calc(n, a, b, f):
 	"""Compute the value of the recurrence $W(n) = aW(n/b) + f(n)
 
