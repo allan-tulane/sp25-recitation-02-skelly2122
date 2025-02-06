@@ -25,7 +25,6 @@ def simple_work_calc(n, a, b):
 		return a * simple_work_calc(n // b, a, b) + n
 
 
-
 def work_calc(n, a, b, f):
 	"""Compute the value of the recurrence $W(n) = aW(n/b) + f(n)
 
