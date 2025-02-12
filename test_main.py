@@ -20,6 +20,27 @@ def test_work():
 	assert work_calc(24, 1, 3, lambda n: n) == 35
 
 
+def test_asymptotic():
+	# Test f(n) = 1
+	def work_fn1(n):
+		return work_calc(n, 2, 2, lambda n: 1)
+	
+	# Test f(n) = log n
+	def work_fn2(n):
+		return work_calc(n, 2, 2, lambda n: math.log2(n))
+	
+	# Test f(n) = n
+	def work_fn3(n):
+		return work_calc(n, 2, 2, lambda n: n)
+	
+	res = compare_work(work_fn1, work_fn2, sizes=[10, 20, 40, 80, 160, 320])
+	print("\nComparing f(n)=1 vs f(n)=log n")
+	print_results(res)
+	
+	res = compare_work(work_fn2, work_fn3, sizes=[10, 20, 40, 80, 160, 320])
+	print("\nComparing f(n)=log n vs f(n)=n")
+	print_results(res)
+
 def test_compare_work():
 	# Create work functions using different f(n)
 	def work_fn1(n):
