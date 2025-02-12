@@ -42,14 +42,27 @@ def test_asymptotic():
 	print_results(res)
 
 def test_compare_work():
-	# Create work functions using different f(n)
+	# Test cases where a=4, b=2
+	# log_b(a) = log_2(4) = 2
+	
+	# Case 1: c < log_b(a) (c=1)
 	def work_fn1(n):
-		return work_calc(n, 2, 2, lambda x: x)
-
+		return work_calc(n, 4, 2, lambda x: x)
+	
+	# Case 2: c = log_b(a) (c=2)
 	def work_fn2(n):
-		return work_calc(n, 2, 2, lambda x: x * x)
-
-	res = compare_work(work_fn1, work_fn2)
+		return work_calc(n, 4, 2, lambda x: x**2)
+	
+	# Case 3: c > log_b(a) (c=3)
+	def work_fn3(n):
+		return work_calc(n, 4, 2, lambda x: x**3)
+	
+	print("\nComparing c < log_b(a) vs c = log_b(a)")
+	res = compare_work(work_fn1, work_fn2, sizes=[10, 20, 40, 80])
+	print_results(res)
+	
+	print("\nComparing c = log_b(a) vs c > log_b(a)")
+	res = compare_work(work_fn2, work_fn3, sizes=[10, 20, 40, 80])
 	print_results(res)
 
 
