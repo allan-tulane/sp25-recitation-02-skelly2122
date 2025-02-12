@@ -47,7 +47,7 @@ def span_calc(n, a, b, f):
 	"""
 	if n <= 1:
 		return 1
-	return span_calc(n // b, a, b, f) + f(n)
+	return max(span_calc(n // b, a, b, f) for _ in range(a)) + f(n)
 
 
 def compare_work(work_fn1,
@@ -93,5 +93,5 @@ def compare_span(span_fn1,
 	result = []
 	for n in sizes:
 		# compute W(n) using current a, b, f
-		result.append((n, span_fn1, span_fn2))
+		result.append((n, span_fn1(n), span_fn2(n)))
 	return result
