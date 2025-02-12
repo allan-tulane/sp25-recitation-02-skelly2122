@@ -24,20 +24,21 @@ def test_compare_work():
 	# Create work functions using different f(n)
 	def work_fn1(n):
 		return work_calc(n, 2, 2, lambda x: x)
-	
+
 	def work_fn2(n):
-		return work_calc(n, 2, 2, lambda x: x*x)
-	
+		return work_calc(n, 2, 2, lambda x: x * x)
+
 	res = compare_work(work_fn1, work_fn2)
 	print_results(res)
 
 
 def test_compare_span():
+
 	def span_fn1(n):
 		return span_calc(n, 2, 2, lambda x: x)
-	
+
 	def span_fn2(n):
-		return span_calc(n, 2, 2, lambda x: x*x)
-	
+		return span_calc(n, 2, 2, lambda x: x * x)
+
 	res = compare_span(span_fn1, span_fn2)
 	print_results(res)
