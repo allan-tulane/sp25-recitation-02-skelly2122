@@ -42,16 +42,8 @@ def work_calc(n, a, b, f):
 
 
 def span_calc(n, a, b, f):
-	"""Compute the span associated with the recurrence $W(n) = aW(n/b) + f(n)
-
-	Params:
-	n......input integer
-	a......branching factor of recursion tree
-	b......input split factor
-	f......a function that takes an integer and returns 
-           the work done at each node 
-
-	Returns: the value of W(n).
+	"""Compute the span associated with the recurrence S(n) = S(n/b) + f(n)
+	Note: for span, we take the maximum of recursive calls + f(n)
 	"""
 	if n <= 1:
 		return 1

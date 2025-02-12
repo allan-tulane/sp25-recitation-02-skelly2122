@@ -67,12 +67,22 @@ def test_compare_work():
 
 
 def test_compare_span():
-
-	def span_fn1(n):
-		return span_calc(n, 2, 2, lambda x: x)
-
-	def span_fn2(n):
-		return span_calc(n, 2, 2, lambda x: x * x)
-
-	res = compare_span(span_fn1, span_fn2)
-	print_results(res)
+    # Test with f(n) = 1
+    def span_fn1(n):
+        return span_calc(n, 2, 2, lambda n: 1)
+    
+    # Test with f(n) = log n
+    def span_fn2(n):
+        return span_calc(n, 2, 2, lambda n: math.log2(n))
+    
+    # Test with f(n) = n
+    def span_fn3(n):
+        return span_calc(n, 2, 2, lambda n: n)
+    
+    print("\nComparing span with f(n)=1 vs f(n)=log n")
+    res = compare_span(span_fn1, span_fn2, sizes=[10, 20, 50, 100])
+    print_results(res)
+    
+    print("\nComparing span with f(n)=log n vs f(n)=n")
+    res = compare_span(span_fn2, span_fn3, sizes=[10, 20, 50, 100])
+    print_results(res)
