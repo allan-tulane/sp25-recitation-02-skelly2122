@@ -35,7 +35,26 @@ where $W(1) = 1$.
 
 - [ ] 3. (2 point) Now implement `work_calc`, which generalizes the above so that we can now input $a$, $b$ and a *function* $f(n)$ as arguments. Test this code by completing the test cases in `test_work` and adding 3 more cases.
 
-- [ ] 4. (2 point) Now, derive the asymptotic behavior of $W(n)$ using $f(n) = 1$, $f(n) = \log n$ and $f(n) = n$. Then, generate actual values for $W(n)$ for your code and confirm that the trends match your derivations.
+- [x] 4. (2 point) Now, derive the asymptotic behavior of $W(n)$ using $f(n) = 1$, $f(n) = \log n$ and $f(n) = n$. Then, generate actual values for $W(n)$ for your code and confirm that the trends match your derivations.
+
+Using the Master Theorem for $W(n) = 2W(n/2) + f(n)$:
+
+1. For $f(n) = 1$:
+   - Compare $n^{\log_2(2)} = n^1$ with $f(n) = 1$
+   - Since $f(n)$ is polynomially smaller than $n^1$
+   - Therefore, $W(n) = \Theta(n)$
+
+2. For $f(n) = \log n$:
+   - Compare $n^{\log_2(2)} = n^1$ with $f(n) = \log n$
+   - Case 2 applies since $f(n) = \log n$ is not polynomially smaller/larger
+   - Therefore, $W(n) = \Theta(n \log n)$
+
+3. For $f(n) = n$:
+   - Compare $n^{\log_2(2)} = n^1$ with $f(n) = n$
+   - Case 3 applies since they are equal
+   - Therefore, $W(n) = \Theta(n \log n)$
+
+Our empirical results from test_asymptotic() confirm these theoretical bounds, showing that $f(n) = 1$ grows linearly while both $f(n) = \log n$ and $f(n) = n$ exhibit $n \log n$ growth, with $f(n) = n$ having larger constants.
 
 
 
