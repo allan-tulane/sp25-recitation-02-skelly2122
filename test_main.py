@@ -66,7 +66,7 @@ def test_compare_work():
 	print_results(res)
 
 
-def test_compare_span():
+def test_compare_span(capsys):
     # Test with f(n) = 1
     def span_fn1(n):
         return span_calc(n, 2, 2, lambda n: 1)
@@ -86,3 +86,8 @@ def test_compare_span():
     print("\nComparing span with f(n)=log n vs f(n)=n")
     res = compare_span(span_fn2, span_fn3, sizes=[10, 20, 50, 100])
     print_results(res)
+    
+    # Force output to show
+    out, err = capsys.readouterr()
+    print(out)
+    assert True  # Ensure test passes while showing output
